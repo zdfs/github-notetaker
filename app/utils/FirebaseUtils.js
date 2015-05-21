@@ -1,9 +1,9 @@
 var Firebase = require('firebase');
-var appConstants = require('../constants/appConstants');
+var AppConstants = require('../constants/AppConstants');
 
 var firebaseUtils = {
   homeInstance: function(){
-    return new Firebase(appConstants.FIREBASE_HOST);
+    return new Firebase(AppConstants.FIREBASE_HOST);
   },
   addNote: function(noteObj){
     this.homeInstance().child(noteObj.user).push(noteObj.note);

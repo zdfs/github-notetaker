@@ -1,7 +1,7 @@
 var AppDispatcher = require('../dispatcher/AppDispatcher'),
-	AppConstants = require('../constants/AppConstants'),
-	firebaseUtils = require('../utils/FirebaseUtils'),
-	noteActions;
+		AppConstants = require('../constants/AppConstants'),
+		firebaseUtils = require('../utils/FirebaseUtils'),
+		noteActions;
 
 noteActions = {
 
@@ -15,6 +15,17 @@ noteActions = {
 
 		// Add to Firebase
 		firebaseUtils.addNote(noteObj);
+
+	},
+
+	removeNote (noteObj) {
+
+		AppDispatcher.handleAction({
+			actionType: AppConstants.REMOVE_NOTE,
+			data: noteObj.note
+		});
+
+		firebaseUtils.removeNote(noteObj);
 
 	},
 

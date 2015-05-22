@@ -1,3 +1,5 @@
+'use strict';
+
 var AppDispatcher = require('../dispatcher/AppDispatcher'),
 		AppConstants = require('../constants/AppConstants'),
 		EventEmitter = require('events').EventEmitter,
@@ -24,6 +26,14 @@ _state = {
 
 function setNote(note) {
 	_state.notes.push(note);
+}
+
+function removeNote(note) {
+
+	var noteToRemove = _state.notes.indexOf(note);
+
+	_state.notes.splice(noteToRemove, 1);
+
 }
 
 function setUser(user) {
@@ -67,6 +77,10 @@ AppDispatcher.register(payload => {
 
 		case AppConstants.ADD_NOTE:
 			setNote(action.data);
+			notesStore.emit(CHANGE_EVENT);
+			break;
+		case AppConstants.REMOVE_NOTE:
+			removeNote(action.data);
 			notesStore.emit(CHANGE_EVENT);
 			break;
 		case AppConstants.CHANGE_USER:

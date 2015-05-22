@@ -36,13 +36,22 @@ Notes = React.createClass({
 
 	},
 
+	_removeNote (note) {
+
+		noteActions.removeNote({
+			user: this.props.username,
+			note: note
+		});
+
+	},
+
 	render () {
 
 		return (
 			<div>
 				<h3>Notes for {this.props.username}</h3>
 				<AddNote username={this.props.username} />
-				<NotesList notes={this.state.notes} />
+				<NotesList notes={this.state.notes} remove={this._removeNote} />
 			</div>
 		);
 

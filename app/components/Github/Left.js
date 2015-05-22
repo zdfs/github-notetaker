@@ -46,19 +46,25 @@ Left = React.createClass({
 
 		return (
 			<div>
-				<h3>User Profile</h3>
-				<ul className="list-group">
-					{this.state.bio.avatar_url && <li className="list-group-item"><img src={this.state.bio.avatar_url} className="img-rounded img-responsive" /></li>}
-					{this.state.bio.name && <li className="list-group-item">Name: {this.state.bio.name}</li>}
-					{this.state.bio.login && <li className="list-group-item"> Username: {this.state.bio.login} </li>}
-          {this.state.bio.email && <li className="list-group-item"> Email: {this.state.bio.email} </li>}
-          {this.state.bio.location && <li className="list-group-item"> Location: {this.state.bio.location} </li>}
-          {this.state.bio.company && <li className="list-group-item"> Company: {this.state.bio.company} </li>}
-          {this.state.bio.followers && <li className="list-group-item"> Followers: {this.state.bio.followers} </li>}
-          {this.state.bio.following && <li className="list-group-item"> Following: {this.state.bio.following} </li>}
-          {this.state.bio.following && <li className="list-group-item"> Public Repos: {this.state.bio.public_repos} </li>}
-          {this.state.bio.blog && <li className="list-group-item"> Blog: <a href={this.state.bio.blog}> {this.state.bio.blog} </a></li>}
-				</ul>
+				<div className="row">
+					<div className="columns small-12">
+						<h3>User Profile</h3>
+					</div>
+				</div>
+				<div className="section condensed">
+					{this.state.bio.avatar_url && <a href={this.state.bio.html_url} target="_blank"><img src={this.state.bio.avatar_url} className="th radius" /></a>}
+					<ul className="side-nav">
+						{this.state.bio.name && <li><b>Name:</b> {this.state.bio.name}</li>}
+						{this.state.bio.login && <li><b>Username:</b><a href={this.state.bio.html_url} target="_blank" style={{display: "inline", padding: "0 .25rem"}}>{this.state.bio.login}</a></li>}
+						{this.state.bio.email && <li><b>Email:</b> {this.state.bio.email}</li>}
+						{this.state.bio.location && <li><b>Location:</b> {this.state.bio.location}</li>}
+						{this.state.bio.company && <li><b>Company:</b> {this.state.bio.company}</li>}
+						{this.state.bio.followers > 0 && <li><b>Followers:</b> {this.state.bio.followers}</li>}
+						{this.state.bio.following > 0 && <li><b>Following:</b> {this.state.bio.following}</li>}
+						{this.state.bio.public_repos > 0 && <li><b>Public Repos:</b> {this.state.bio.public_repos}</li>}
+						{this.state.bio.blog && <li><b>Blog:</b><a style={{display: "inline", padding: "0 .25rem"}} href={this.state.bio.blog} targe="_blank">{this.state.bio.blog}</a></li>}
+					</ul>
+				</div>
 			</div>
 		);
 

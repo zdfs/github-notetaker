@@ -1,15 +1,20 @@
-var React = require('react');
-var githubActions = require('../actions/githubActions');
-var SearchGithub = require('./SearchGithub');
+var React = require('react'),
+		githubActions = require('../actions/githubActions'),
+		SearchGithub = require('./SearchGithub'),
+		Home;
 
-var Home = React.createClass({
-  render: function(){
-    return (
-      <h2 className="text-center">
-        Search by Github Username Above
-      </h2>
-    )
-  }
+Home = React.createClass({
+
+	render: function() {
+
+		return (
+			<div>
+				<h2 className="text-center">Search by Github Username Above</h2>
+			</div>
+		);
+
+	}
+
 });
 
 module.exports = Home;

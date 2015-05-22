@@ -24,11 +24,19 @@ AddNote = React.createClass({
 	render () {
 
 		return (
-			<div className="input-group cushion">
-				<input type="text" ref="note" className="form-control" placeholder="AddNote" onKeyDown={this.handleSubmit} />
-				<span className="input-group-btn">
-					<button className="btn btn-default" type="button" onClick={this.handleSubmit}>Submit</button>
-				</span>
+			<div className="section condensed">
+				<div className="row">
+					<div className="columns small-12">
+						<div className="row collapse">
+							<div className="columns small-8">
+								<input type="text" ref="note" placeholder="AddNote" onKeyDown={this.handleSubmit} />
+							</div>
+							<div className="columns small-4">
+								<button className="button postfix" type="button" onClick={this.handleSubmit}>Add</button>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		);
 
